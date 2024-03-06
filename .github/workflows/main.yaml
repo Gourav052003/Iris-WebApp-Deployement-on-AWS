@@ -1,0 +1,9 @@
+name: Deploy to EC2 in AWS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on:

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris</title>
+</head>
+<body>
+
+
+    <h1>Iris FLower type</h1>
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}
+    
+    <form method="post" action = "/predict">
+
+        <label>sepal length</label>
+        <input type="text" name="sepal length">
+        <br><br>
+
+        <label>sepal width</label>
+        <input type="text" name="sepal width">
+        <br><br>
+
+        <label>petal length</label>
+        <input type="text" name="petal length">
+        <br><br>
+
+        <label>petal width</label>
+        <input type="text" name="petal width">
+        <br><br>
+        
+        <input type="submit" value="predict" >
+        <br><br>
+
+
+    </form>
+
+</body>
+</html>

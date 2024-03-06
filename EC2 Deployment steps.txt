@@ -1,0 +1,20 @@
+Install Putty
+Intall WinSCP
+
+open WinSCP and upload the files
+put dns and do the authentication using username and converted .pem to .pkk (done autometically)
+
+open the putty session
+
+sudo apt install python3
+sudo apt-get update && sudo apt-get install python3-pip
+pip3 install -r requirements.txt
+
+python3 app.py
+OR
+screen -R deploy python3 app.py (for making run even the putty session get closed)
+above step again and ctrl+c to close session created using above command
+
+
+
+

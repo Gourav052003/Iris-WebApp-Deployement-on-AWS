@@ -70,6 +70,7 @@ You can test with docker images using docker compose in localhost
 ```
 docker init
 ```
+![docker-init](https://github.com/Gourav052003/Iris-WebApp-Deployement-on-AWS/assets/81559597/1678cc97-86b9-4268-9b4b-0cab671586af)
 
 2. `docker init` provides some default configuration, but you'll need to answer a few questions about your application. For example, this application uses Flask to run. Refer to the following example to answer the prompts from docker init and use the same answers for your prompts.
 
@@ -191,6 +192,7 @@ $ ./config.sh --url https://github.com/Gourav052003/Iris-WebApp-Deployement-on-A
 # Last step, run it!
 $ ./run.sh
 ```
+![GitHub actions](https://github.com/Gourav052003/Iris-WebApp-Deployement-on-AWS/assets/81559597/bf4a3b57-0c0d-441f-9a58-bbd7362eefe0)
 
 ### Setup Secrets in GitHub repository
 23. Navigate to `Settings` --> `Secrets and variables` --> `Actions`
@@ -206,6 +208,7 @@ AWS_ECR_LOGIN_URI = 566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
 ECR_REPOSITORY_NAME = myapp
 ```
+![CICD](https://github.com/Gourav052003/Iris-WebApp-Deployement-on-AWS/assets/81559597/cec870db-4713-4477-a4e4-6a69b85cffdf)
 
 ### configuring security of EC2 instance
 25. open EC2 instance --> `Security` --> click on `security groups` 

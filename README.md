@@ -42,8 +42,7 @@ python app.py
 ```
 screen -R deploy python3 app.py
 ```
-<<<<<<< HEAD
 20. To close the running app repeate above step again and ctrl+c to close session which created using above command.
 
-=======
->>>>>>> 945b14bb4a429c200e6ad89c42c617cab9096a81
+
+

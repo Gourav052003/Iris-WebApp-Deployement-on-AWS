@@ -37,3 +37,8 @@ python app.py
 ```
 
 18. Paste the `public DNS` that we have copied into browser with port:8080 and see your app runing on EC2.
+
+19. Use below command to run your app even after closing Putty terminal.
+```
+screen -R deploy python3 app.py
+```

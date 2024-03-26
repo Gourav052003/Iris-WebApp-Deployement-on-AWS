@@ -47,9 +47,66 @@ screen -R deploy python3 app.py
 
 # Deploy Flask App using GitHub Actions, CI/CD piplelines, ECR, Dcoker and EC2 on AWS
 
-1. Login to [AWS console](https://aws.amazon.com/console/)
+### Files needed:
+
+```
+* Dockerfile
+* compose.yaml (If using docker-compose for creating docker image)
+* .gitHub\workflows\main.yaml
+```
+
+While running the CI/CD pipeline using GitHub Actions for first time, below script should not be in comments.
+```
+  - name: Stop and remove container if running
+        run: |
+         docker ps -q --filter "name=texts" | grep -q . && docker stop texts && docker rm -fv texts
+```
+
+You can test with docker images using docker compose in localhost
+
+
+1. `docker init` to create the necessary Docker assets to containerize your application with the followung steps as follows:
+
+```
+docker init
+```
+
+2. `docker init` provides some default configuration, but you'll need to answer a few questions about your application. For example, this application uses Flask to run. Refer to the following example to answer the prompts from docker init and use the same answers for your prompts.
+
+3. Following files will be added:
+ * [Dockerfile](https://docs.docker.com/reference/dockerfile/)
+ * [.dockerignore](https://docs.docker.com/reference/dockerfile/#dockerignore-file)
+ * [compose.yaml](https://docs.docker.com/compose/compose-file/)
+
+4. Run the application using following command in a terminal.
+```
+docker compose up --build
+
+# detached mode
+docker compose up --build -d
+```
+
+5. Open a browser and view the application at http://localhost:5000
+
+6. In the terminal, run the following command to stop the application.
+```
+docker compose down
+```
+
+
+
+### Deployment workflow
+```
+ 1. Build docker image of the source code
+ 2. Push your docker image to ECR
+ 3. Launch Your EC2 
+ 4. Pull Your image from ECR in EC2
+ 5. Launch your docker image in EC2
+```
+
 
 ### Create IAM user with policies
+1. Login to [AWS console](https://aws.amazon.com/console/)
 2. Create IAM user for deployment --> attach following policies
 ```
 AmazonEC2ContainerRegistryFullAccess
@@ -158,42 +215,3 @@ Custom TCP, Anywhere traffic , port 5000
 ```
 
 27. open Public IP with port :5000 in EC2 instance to see your app running on EC2 
-
-
-
-
-
-
-
-
-
-
-
-1. `docker init` to create the necessary Docker assets to containerize your application
-
-```
-docker init
-```
-
-2. `docker init` provides some default configuration, but you'll need to answer a few questions about your application. For example, this application uses Flask to run. Refer to the following example to answer the prompts from docker init and use the same answers for your prompts.
-
-3. Following files will be added:
- * [Dockerfile](https://docs.docker.com/reference/dockerfile/)
- * [.dockerignore](https://docs.docker.com/reference/dockerfile/#dockerignore-file)
- * [compose.yaml](https://docs.docker.com/compose/compose-file/)
-
-4. Run the application using following command in a terminal.
-```
-docker compose up --build
-
-# detached mode
-docker compose up --build -d
-```
-
-5. Open a browser and view the application at http://localhost:5000
-
-6. In the terminal, run the following command to stop the application.
-```
-docker compose down
-```
-
